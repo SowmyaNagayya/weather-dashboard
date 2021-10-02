@@ -1,7 +1,15 @@
 var searchButton = $("#searchbutton");
 var inputField = $("#searchinput");
-var cityName=  JSON.parse(localStorage.getItem("name")) ||  [];
+var cityNameStorageField =[];
 
+
+searchButton.click(function(event) {
+  event.preventDefault();
+  var city = inputField.val(); 
+  getAPI(city);
+});
+
+// Populating the current weather
 function getAPI(city) {
   var APIKey = "8cabcf2bb69158502474a06c66719777";
   var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8cabcf2bb69158502474a06c66719777&units=imperial";
@@ -9,54 +17,52 @@ function getAPI(city) {
     .then(function(response) {
        response.json().then(function (data) {
          $("#cityname").text(data["name"]);
-         $("#temp").text("Temp: " + data["main"].temp);
-         $("#wind").text("Wind: " + data["wind"].speed);
-         $("#humidity").text("humidity: " + data["main"].humidity);
-        //displayForeCast(data, city);
+         $("#temp").text("Temp: " + data["main"].temp + " F");
+         $("#wind").text("Wind: " + data["wind"].speed + " mph");
+         $("#humidity").text("humidity: " + data["main"].humidity+ " %");
+
+        // Updating the local storage
+        updateStorage(data["name"]);
+
+        // Populating the Future forecast for 5 adys
+        futureForecast(data["coord"].lat, data["coord"].lon);
+
       });
     })
   }
 
-
-searchButton.click(function(event) {
-  event.preventDefault();
-  var city = inputField.val(); 
-  getAPI(city);
-})
-
 //storing searched city name in local storage         
-     $("#searchform").on("searchbutton", updateStorage);
+  function updateStorage(city) {
+    
+    if(!cityNameStorageField.includes(city)){
+    cityNameStorageField.push(city);
+    localStorage.setItem("cityNameStorage",  JSON.stringify(cityNameStorageField));
+    }
+    $('#previouslySearchedCitiesContainer').empty();
+      var cityName= JSON.parse(localStorage.getItem("cityNameStorage"));
+      for(var i=0;i<cityName.length;i++){
+      $("#previouslySearchedCitiesContainer").append(`<li>${cityName[i]} </li>`);
+  }
+}
 
-       function updateStorage(event) {
-           event.preventDefault();
-           var cityName=$("#searchinput");
-           inputField.push(cityName.val());
-           localStorage.setItem("name",  JSON.stringify(cityName));
-           var cityName= JSON.parse(localStorage.getItem("name"));
-           for(var i=0;i<cityName.length;i++){
-           $("#citylist").innerHTML+=`<li>${cityName[i]} </li>`;
-        }
-       }
+ // Query the API's onecall endpoint for forecast data from a full week   
 
+function futureForecast(cityLatitude, cityLongitude){
 
-// Populate Date
+  var oneCallURI = 'https://api.openweathermap.org/data/2.5/onecall?lat='+cityLatitude+'&lon=' +cityLongitude+ '&appid=8cabcf2bb69158502474a06c66719777&units=imperial';
 
+   
+  fetch(oneCallURI)
+  .then(function(response) {
+     response.json().then(function (data) {
+      console.log(data.length);
+      console.log(data);
+      for(var i=0; i<5;i++){
+        $("#temp"+i).text("Temp: " + data.daily[i].temp.day + " F");
+        $("#wind"+i).text("Wind: " + data.daily[i].wind_speed + " mph");
+        $("#humidity"+i).text("humidity: " + data.daily[i].humidity+ " %");
+      }
+    });
+  })
 
-// Populate Weather Type
-
-// Populate Temperature
-
-// Populate Wind
-
-// Populate Humidity
-
-
-
-// Populate UV Index
-
-
-
-
-
-
-
+}

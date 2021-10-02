@@ -30,14 +30,13 @@
             <div id="search" class="col-3 bg-light p-4">
                <h3>Search for a City:</h3>
                <div class="input-group mb-3" id="searchform">
-                <input type="text" class="form-control" value="" placeholder="Minnesota" id="searchinput">
+                <input type="text" class="form-control" value="" placeholder="Enter City Name" id="searchinput">
                 <button class="btn btn-primary" type="button" id="searchbutton">Search</button>
-                <div>
-                    <ul id="citylist">
-                        <li></li>
-                    </ul>
-                </div>
                </div>
+               <ol>
+                  <div id="previouslySearchedCitiesContainer">
+                  </div>
+               </ol>
             </div>
 
             <div id="results" class="col-9 bg-light">
@@ -58,15 +57,47 @@
 
                 <h4>5-Day Forecast:</h4>
                 <div class="row my-4 me-4" id="futureforecast">
-                    <div class="col card m-2 p-3" id="today1"></div>
-                    <div class="col card m-2 p-3" id="today2"></div>
-                    <div class="col card m-2 p-3" id="today3"></div>
-                    <div class="col card m-2 p-3" id="today4"></div>
-                    <div class="col card m-2 p-3" id="today5"></div>
+                    <div class="col card m-2 p-3" id="day1">
+                           <p class="card-text" id="temp0">Temp</p>
+                           <p class="card-text" id="wind0">Wind</p>
+                           <p class="card-text" id="humidity0">Humidity</p>
+                           <p class="card-text"><span class="p-1 border rounded rounded-4" id="UVIndex0"></span>UVIndex</p>
+                    
+                    </div>
+                    <div class="col card m-2 p-3" id="day2">
+                        <p class="card-text" id="temp1">Temp</p>
+                        <p class="card-text" id="wind1">Wind</p>
+                        <p class="card-text" id="humidity1">Humidity</p>
+                        <p class="card-text"><span class="p-1 border rounded rounded-4" id="UVIndex1"></span>UVIndex</p>
+                 
+                    </div>
+                    <div class="col card m-2 p-3" id="day3">
+                        <p class="card-text" id="temp2">Temp</p>
+                        <p class="card-text" id="wind2">Wind</p>
+                        <p class="card-text" id="humidity2">Humidity</p>
+                        <p class="card-text"><span class="p-1 border rounded rounded-4" id="UVIndex2"></span>UVIndex</p>
+                 
+                    </div>
+                    <div class="col card m-2 p-3" id="day4">
+                        <p class="card-text" id="temp3">Temp</p>
+                        <p class="card-text" id="wind3">Wind</p>
+                        <p class="card-text" id="humidity3">Humidity</p>
+                        <p class="card-text"><span class="p-1 border rounded rounded-4" id="UVIndex3"></span>UVIndex</p>
+                 
+                    </div>
+
+                    <div class="col card m-2 p-3" id="day5">
+                        <p class="card-text" id="temp4">Temp</p>
+                        <p class="card-text" id="wind4">Wind</p>
+                        <p class="card-text" id="humidity4">Humidity</p>
+                        <p class="card-text"><span class="p-1 border rounded rounded-4" id="UVIndex4"></span>UVIndex</p>
+                 
+                    </div>
                 </div>
             </div>
         </div>
     </main>
     <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
