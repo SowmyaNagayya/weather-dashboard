@@ -1,0 +1,53 @@
+/* style for current weather*/
+#cityname {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#temp {
+    font-weight: bold;
+}
+
+#wind {
+    font-weight: bold;
+}
+
+#humidity {
+    font-weight: bold;
+}
+
+#uvtext {
+    font-weight: bold;
+}
+
+/*style for 5 days weather*/
+#day1 {
+    background-color: rgb(3, 3, 27) ;
+    color : white;
+}
+
+
+#day2 {
+    background-color: rgb(3, 3, 27) ;
+    color : white;
+}
+
+
+#day3 {
+    background-color: rgb(3, 3, 27) ;
+    color : white;
+}
+
+
+#day4 {
+    background-color: rgb(3, 3, 27) ;
+    color : white;
+}
+
+
+#day5 {
+    background-color: rgb(3, 3, 27) ;
+    color : white;
+}
+
+
