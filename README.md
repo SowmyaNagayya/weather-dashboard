@@ -13,5 +13,5 @@ SO THAT we can plan a trip accordingly.
 
 ## Link to deployed page
 
-You can also refer to this [GitHub Pages](https://github.com/SowmyaNagayya/codequiz).
+You can also refer to this [GitHub Pages](https://sowmyanagayya.github.io/weather-dashboard/).
 
