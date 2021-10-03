@@ -4,7 +4,7 @@
  
 Created weather-dashboard app to see the weather outlook for multiple cities for current weather forecast and 5days forecast
 SO THAT we can plan a trip accordingly.
-``` 
+
 
 ## Screenshot of homepage
 
