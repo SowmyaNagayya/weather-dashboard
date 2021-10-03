@@ -8,7 +8,7 @@ SO THAT we can plan a trip accordingly.
 
 ## Screenshot of homepage
 
-![Here is a screen shot of the final page/homepage.](./assets/css/image/weatherdashboard.png)
+![Here is a screen shot of the final page/homepage.](./assets/image/weatherdashboard.png)
 
 
 ## Link to deployed page
